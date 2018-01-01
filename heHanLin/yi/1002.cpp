@@ -19,9 +19,11 @@ yi san wu
 */
 
 int main() {
-    unsigned long long n, sum=0, p, i;
+    int sum=0, p, i;
+    string n;
     string s[10]; //0-9拼音数组
     stack<string> st;
+    char *tmp;
     s[0] = "ling";
     s[1] = "yi";
     s[2] = "er";
@@ -34,9 +36,10 @@ int main() {
     s[9] = "jiu";
 
     cin>>n;
-    while(n!=0) {
-        sum += n%10;
-        n /= 10;
+    for(string::size_type j=0; j<n.size(); j++) {
+        tmp = (char*)n.substr(j, 1).data();
+        p = atoi(tmp);
+        sum += p;
     }
 
     while(sum!=0) {
